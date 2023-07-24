@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="haha" width="1000" height="500"></canvas>
+<script>
+  function Rectangle(x,y,width,height){
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+  function getRandomHex(){
+    return Math.floor(Math.random()*255);
+  }
+  function getRandomColor(){
+    let x = getRandomHex();
+    let y = getRandomHex();
+    let z = getRandomHex();
+    return "rgb("+x+","+y+","+z+")";
+  }
+  function creatRectangle(){
+    let rec = document.getElementById('haha').getContext('2d');
+    let width = 100;
+    let height = 50;
+    let x = Math.floor(Math.random()*900);
+    let y = Math.floor(Math.random()*450);
+    let rectangle = new Rectangle(x,y,width,height);
+    let S = width*height;
+    let C = 2*(width+height);
+    document.write(`Diện tích ${S}; Chu vi ${C}`);
+    rec.beginPath();
+    rec.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+    rec.fillStyle = getRandomColor();
+    rec.fill();
+  }
+  creatRectangle()
+</script>
+
+</body>
+</html>
